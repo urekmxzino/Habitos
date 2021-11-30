@@ -10,8 +10,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="309dp"
+        android:layout_height="540dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="32dp"
@@ -22,7 +22,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
 
 
         <TextView
@@ -156,7 +155,7 @@
                     android:id="@+id/textView41"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="your explain about Calendar"
+                    android:text="Ubicación de la empresa"
                     android:textColor="#000000"
 
                     android:textSize="12sp"
@@ -237,7 +236,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="59dp"
-                android:text="No te elevas al nivel de tus metas. Caes al nivel de tus sistemas."
+                android:text='"No te elevas al nivel de tus metas. Caes al nivel de tus sistemas."'
                 android:textColor="#828181"
                 android:textSize="16sp"
                 android:textStyle="bold"

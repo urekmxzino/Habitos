@@ -14,7 +14,7 @@ import com.aravena.certamenhabitosnicolasaravena.models.Usuario;
 import com.aravena.certamenhabitosnicolasaravena.sqlite.DbUsuario;
 
 public class Register extends AppCompatActivity {
-    EditText txtNombre,txtApellido,txtEmail,txtPass;
+    EditText txtNombre,txtApellido,txtEmail,txtPass,txtPass2;
     TextView tvIniciar;
     Button registrar;
 
@@ -34,6 +34,7 @@ public class Register extends AppCompatActivity {
         txtEmail = findViewById(R.id.txtREmail);
         txtPass = findViewById(R.id.txtRPass);
         registrar = findViewById(R.id.btnRegistrarse);
+        txtPass2= findViewById(R.id.txtRPass1);
 
 
         registrar.setOnClickListener(new View.OnClickListener() {
@@ -43,24 +44,41 @@ public class Register extends AppCompatActivity {
                 String apellido = txtApellido.getText().toString();
                 String email = txtEmail.getText().toString();
                 String pass = txtPass.getText().toString();
-
+                String pass2 = txtPass2.getText().toString();
 
                 Usuario u = new Usuario(nombre,apellido,email,pass);
                 DbUsuario dbuser = new DbUsuario(getApplicationContext());
-                long id = dbuser.insertarUsuario(u);
 
 
-                if( id >= 0 ){
-                    Toast.makeText(Register.this,
-                            nombre+" registrado, ya puedes iniciar sesión", Toast.LENGTH_LONG).show();
-                    txtNombre.setText("");
-                    txtApellido.setText("");
-                    txtEmail.setText("");
-                    txtPass.setText("");
-                }else{
-                    Toast.makeText(Register.this,
-                            "Error al registrarse, intente nuevamente", Toast.LENGTH_LONG).show();
+
+                if (nombre.equals("")){
+                    Toast.makeText(getApplicationContext(), "No ingresaste un nombre", Toast.LENGTH_SHORT).show();
+                }else if(apellido.equals("")){
+                    Toast.makeText(getApplicationContext(), "No ingresaste un apellido", Toast.LENGTH_SHORT).show();
+                }else if (email.equals("")){
+                    Toast.makeText(getApplicationContext(), "No ingresaste un email", Toast.LENGTH_SHORT).show();
+                }else if(pass.equals("")){
+                    Toast.makeText(getApplicationContext(), "No ingresaste una contrasña", Toast.LENGTH_SHORT).show();
+                }else if(!pass.equals(pass2)){
+
+                    Toast.makeText(getApplicationContext(), "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
                 }
+                else{
+                    long id = dbuser.insertarUsuario(u);
+                    if( id >= 0 ){
+                        Toast.makeText(Register.this,
+                                nombre+" registrado, ya puedes iniciar sesión", Toast.LENGTH_LONG).show();
+                        txtNombre.setText("");
+                        txtApellido.setText("");
+                        txtEmail.setText("");
+                        txtPass.setText("");
+                    }else{
+                        Toast.makeText(Register.this,
+                                "Error al registrarse, intente nuevamente", Toast.LENGTH_LONG).show();
+                    }
+                }
+
+
             }
         });
 

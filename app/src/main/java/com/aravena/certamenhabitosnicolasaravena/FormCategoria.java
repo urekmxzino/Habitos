@@ -44,13 +44,22 @@ public class FormCategoria extends AppCompatActivity {
 
                 Categoria c = new Categoria(nombre);
                 DbCategoria dbcat = new DbCategoria(getApplicationContext());
-                long id = dbcat.insertarCategoria(c);
-                if(id>=0){
-                    Toast.makeText(FormCategoria.this,nombre+" insertada",Toast.LENGTH_SHORT).show();
-                    txtNombre.setText("");
-                }else{
-                    Toast.makeText(FormCategoria.this,"Error al insertar",Toast.LENGTH_SHORT).show();
+
+                if (nombre.equals("")){
+                    Toast.makeText(getApplicationContext(), "No ingresaste un nombre de categoria", Toast.LENGTH_SHORT).show();
                 }
+                else{
+                    long id = dbcat.insertarCategoria(c);
+
+                    if(id>=0){
+                        Toast.makeText(FormCategoria.this,nombre+" insertada",Toast.LENGTH_SHORT).show();
+                        txtNombre.setText("");
+                    }else{
+                        Toast.makeText(FormCategoria.this,"Error al insertar",Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+
             }
         });
     }

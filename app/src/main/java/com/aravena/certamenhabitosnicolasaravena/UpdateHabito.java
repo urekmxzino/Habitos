@@ -76,10 +76,11 @@ public class UpdateHabito extends AppCompatActivity {
                 String nombre = txtNombre.getText().toString();
                 String descripcion = txtDescripcion.getText().toString();
                 String cant = txtCant.getText().toString();
-                int hecho = Integer.parseInt(cb.getText().toString());
+                //int hecho = Integer.parseInt(cb.getText().toString());
+               // int hecho = Integer.parseInt(cb.getText().toString());
                 Categoria categoria = (Categoria) spcat.getSelectedItem();
                 Prioridad prioridad = (Prioridad) sppriori.getSelectedItem();
-                Habito habitoEdit = new Habito(id,nombre,descripcion,cant,prioridad,categoria,hecho);
+                Habito habitoEdit = new Habito(id,nombre,descripcion,cant,prioridad,categoria,habito.getHecho());
 
                 dbhabito.actualizarHabito(habitoEdit);
                 Toast.makeText(getApplicationContext(), "Habito modificado", Toast.LENGTH_SHORT).show();

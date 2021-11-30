@@ -50,13 +50,23 @@ public class FormPrioridad extends AppCompatActivity {
 
                 Prioridad p = new Prioridad(nombre);
                 DbPrioridad dbpriori = new DbPrioridad(getApplicationContext());
-                long id = dbpriori.insertarPrioridad(p);
-                if (id >= 0) {
-                    Toast.makeText(FormPrioridad.this, nombre + " insertada", Toast.LENGTH_SHORT).show();
-                    txtNombre.setText("");
-                } else {
-                    Toast.makeText(FormPrioridad.this, "Error al insertar", Toast.LENGTH_SHORT).show();
+
+
+
+
+                if (nombre.equals("")){
+                    Toast.makeText(getApplicationContext(), "No ingresaste un nombre de Prioridad", Toast.LENGTH_SHORT).show();
                 }
+                else{
+                    long id = dbpriori.insertarPrioridad(p);
+                    if (id >= 0) {
+                        Toast.makeText(FormPrioridad.this, nombre + " insertada", Toast.LENGTH_SHORT).show();
+                        txtNombre.setText("");
+                    } else {
+                        Toast.makeText(FormPrioridad.this, "Error al insertar", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
             }
         });
     }

@@ -38,31 +38,40 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Inicio"/>
         <activity
             android:name=".Register"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Registro"/>
         <activity
             android:name=".UpdateHabito"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Editar / Eliminar"/>
         <activity
             android:name=".FormCategoria"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Añadir Categorias"/>
         <activity
             android:name=".CategoriaList"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Lista Categorias"/>
         <activity
             android:name=".FormPrioridad"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Añadir Prioridad"/>
         <activity
             android:name=".PrioridadList"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Lista Prioridad"/>
         <activity
             android:name=".FormHabito"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Añadir Habitos"/>
         <activity
             android:name=".HabitoList"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Habitos"/>
         <activity
             android:name=".LoginActivity"
             android:exported="true">

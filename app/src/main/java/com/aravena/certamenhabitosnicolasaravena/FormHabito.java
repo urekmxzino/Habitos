@@ -62,7 +62,7 @@ public class FormHabito extends AppCompatActivity {
 
         txtNombre = findViewById(R.id.txtNombreHabito);
         txtDescripcion = findViewById(R.id.txtDescripcionHabito);
-        txtCant = findViewById(R.id.txtCantHabito);
+       // txtCant = findViewById(R.id.txtCantHabito);
         spcat = findViewById(R.id.spCat);
         sppriori = findViewById(R.id.spPriori);
 
@@ -77,7 +77,8 @@ public class FormHabito extends AppCompatActivity {
             public void onClick(View view) {
                 String nombre = txtNombre.getText().toString();
                 String descripcion = txtDescripcion.getText().toString();
-                String cant = txtCant.getText().toString();
+                //String cant = txtCant.getText().toString();
+                String txtCant;
                 String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
                 Categoria categoria = (Categoria) spcat.getSelectedItem();
                 Prioridad prioridad = (Prioridad) sppriori.getSelectedItem();
@@ -89,17 +90,28 @@ public class FormHabito extends AppCompatActivity {
                 DbHabito db = new DbHabito(getApplicationContext());
 
 
-                long id = db.insertarHabito(h);
-                if(id>=0){
-                    Toast.makeText(FormHabito.this,
-                             "Habito insertado", Toast.LENGTH_LONG).show();
-                    txtNombre.setText("");
-                    txtDescripcion.setText("");
-                    txtCant.setText("");
-                }else {
-                    Toast.makeText(FormHabito.this,
-                            "Error al insertar", Toast.LENGTH_LONG).show();
+
+
+
+                if (nombre.equals("")){
+                    Toast.makeText(getApplicationContext(), "No ingresaste un nombre", Toast.LENGTH_SHORT).show();
+                }else if(descripcion.equals("")){
+                    Toast.makeText(getApplicationContext(), "No ingresaste una descripción", Toast.LENGTH_SHORT).show();
+                }else{
+                    long id = db.insertarHabito(h);
+                    if(id>=0){
+                        Toast.makeText(FormHabito.this,
+                                "Habito insertado", Toast.LENGTH_LONG).show();
+                        txtNombre.setText("");
+                        txtDescripcion.setText("");
+                        //txtCant.setText("");
+                    }else {
+                        Toast.makeText(FormHabito.this,
+                                "Error al insertar", Toast.LENGTH_LONG).show();
+                    }
                 }
+
+
 
             }
         });

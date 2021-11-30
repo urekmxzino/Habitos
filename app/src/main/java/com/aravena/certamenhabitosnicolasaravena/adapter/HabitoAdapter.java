@@ -1,6 +1,7 @@
 package com.aravena.certamenhabitosnicolasaravena.adapter;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.aravena.certamenhabitosnicolasaravena.HabitoList;
 import com.aravena.certamenhabitosnicolasaravena.R;
 import com.aravena.certamenhabitosnicolasaravena.UpdateHabito;
 import com.aravena.certamenhabitosnicolasaravena.models.Categoria;
@@ -25,8 +27,10 @@ import com.aravena.certamenhabitosnicolasaravena.sqlite.DbPrioridad;
 
 import org.w3c.dom.Text;
 
+import java.io.DataInput;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -130,6 +134,22 @@ public class HabitoAdapter extends RecyclerView.Adapter<HabitoAdapter.ViewHolder
             cb.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
+                    /*Date date = new Date();
+                    int clicks = 0;
+                    clicks++;
+
+                    if (clicks >1){
+                        cb.setSelected(false);
+                    }
+
+                    SharedPreferences prefs = this.getSharedPreferences("myPrefsKey", this.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putInt("clicks", clicks);
+                    editor.putString("date", date.toString());
+                    editor.apply();
+*/
+
                     Habito h = listaHabitos.get(getAdapterPosition());
                     DbHabito dbhabito = new DbHabito(itemView.getContext());
                     int id = h.getId();
